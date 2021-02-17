@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "source": {
+      "description": "Path to the target folder, relative to the webpack config file.",
+      "type": "string"
+    },
+    "publicPath": {
+      "description": "Public path of the target folder.",
+      "type": "string"
+    },
+    "outputName": {
+      "description": "Output name, generated constant will be `GALLERY_{outputName}`.",
+      "type": "string"
+    },
+    "ignoreTypes": {
+      "description": "Ignored file types.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["image", "audio", "video"]
+      }
+    },
+    "ignorePatterns": {
+      "description": "Ignore patterns.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "description": "Custom extensions map.",
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9]*$"
+      },
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "verbose": {
+      "description": "Verbose mode.",
+      "type": "boolean"
+    }
+  },
+  "required": ["source"],
+  "additionalProperties": false
+}
