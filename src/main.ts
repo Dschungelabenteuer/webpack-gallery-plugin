@@ -1,6 +1,6 @@
 import { Compiler } from 'webpack';
 import { validate } from 'schema-utils';
-import { toConstantDependency } from 'webpack/lib/ParserHelpers';
+import { toConstantDependency } from 'webpack/lib/javascript/JavascriptParserHelpers';
 import ConstDependency from 'webpack/lib/dependencies/ConstDependency';
 import chalk from 'chalk';
 
@@ -43,7 +43,7 @@ class WebpackGalleryPlugin {
         console.log(chalk.green(`√ Applying value to "GALLERY_${this.options.outputName}"`));
       }
 
-      (compilation as any).dependencyTemplates.set(ConstDependency, new ConstDependency.Template());
+      compilation.dependencyTemplates.set(ConstDependency, new ConstDependency.Template());
 
       const handler = (parser: any): void => {
         parser.hooks.expression
