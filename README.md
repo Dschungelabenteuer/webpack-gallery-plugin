@@ -6,14 +6,14 @@ A webpack plugin to provide a global object representing a detailed gallery tree
 
 You first need to install `webpack-gallery-plugin` as a development dependency by running the following command:
 ```console
-npm install copy-webpack-plugin --save-dev
+npm install webpack-gallery-plugin --save-dev
 ```
 
 You can then add the plugin to your `webpack` config. For example:
 
 ```js
 // webpack.config.js
-const GalleryPlugin = require("copy-webpack-plugin");
+const GalleryPlugin = require("webpack-gallery-plugin");
 
 module.exports = {
   plugins: [
@@ -70,7 +70,7 @@ the option's `extensions` parameter.
 **exemple**
 ```js
 // webpack.config.js
-const GalleryPlugin = require("copy-webpack-plugin");
+const GalleryPlugin = require("webpack-gallery-plugin");
 
 module.exports = {
   plugins: [
