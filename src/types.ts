@@ -1,6 +1,7 @@
 export interface IMediaDetails {
   id: string;
   path: string;
+  details?: any;
 }
 
 export interface IImageDetails extends IMediaDetails {

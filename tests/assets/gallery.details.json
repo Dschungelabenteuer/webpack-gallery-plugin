@@ -1,0 +1,10 @@
+{
+  "example_128_256_PNG.png": {
+    "title": "My great sample image",
+    "description": "It is used to provide a sample image, yay!"
+  },
+  "example_256_128_JPG.jpg": {
+    "random": "You can set whatever property you want",
+    "property": "All you need is valid JSON data"
+  }
+}

@@ -82,15 +82,19 @@ export default class Sniffer {
   }
 
   private async sniff(options: IGalleryOptions): Promise<IDirectory> {
-    const {
-      source, publicPath, extensions, verbose,
-    } = options;
+    const { source, publicPath, extensions, verbose } = options;
     const absolutePath = path.join(this.context, source);
+    const detailsFilePath = path.join(absolutePath, 'gallery.details.json');
     const gallery: IDirectory = {};
+    let details: any = {};
     gallery._media = [];
 
     if (verbose) {
       console.log(chalk.cyan(`i Sniffing path "${absolutePath}" ...`));
+    }
+
+    if (fs.existsSync(detailsFilePath)) {
+      details = JSON.parse(fs.readFileSync(detailsFilePath, 'utf-8'));
     }
 
     try {
@@ -111,6 +115,7 @@ export default class Sniffer {
               clearedPath,
               verbose as boolean,
               extensions,
+              details,
             );
 
             if (preparedMedia) {
@@ -130,7 +135,9 @@ export default class Sniffer {
       }
     } catch (error) {
       if (error.message.includes('no such file or directory')) {
-        console.warn(chalk.yellow(`Tried to sniff "${absolutePath}" directory but it does not exist, ignoring...`));
+        if (verbose) {
+          console.warn(chalk.yellow(`Tried to sniff "${absolutePath}" directory but it does not exist, ignoring...`));
+        }
       } else {
         throw new Error(error);
       }

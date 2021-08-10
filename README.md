@@ -92,3 +92,8 @@ module.exports = {
 
 > ⚠️ `type`s other than `image`, `audio`, `video` will be preserved but wont provide any relevant data
 > but the `path `and an `id`.
+
+## Provide additional details
+Each sniffed folder can provide a `gallery.details.json` file which is being parsed to find and
+concatenate any additional data of your choice (e.g. a simple description or its author). Simply
+specify the relative file path as a key and its details as an object value.

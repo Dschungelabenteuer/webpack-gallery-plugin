@@ -70,8 +70,11 @@ export const prepareMedia = async (
   relativePath: string,
   verbose: boolean,
   extensions?: IMediaTypeMap,
+  details: any = {},
 ): Promise<TMedia | false | undefined> => {
   const type = getMediaType(absolutePath, extensions);
+  const fileName = relativePath.split('/').pop() as string;
+  const fileDetails = details[fileName] || {};
 
   if (!type) {
     return false;
@@ -81,7 +84,9 @@ export const prepareMedia = async (
     console.log(`i Adding media "${absolutePath}" of type "${type}"`);
   }
 
-  const meta: IMediaDetails = { path: relativePath, id: sanitizePath(relativePath) };
+  const meta: IMediaDetails = Object.keys(fileDetails).length === 0
+    ? { path: relativePath, id: sanitizePath(relativePath) }
+    : { path: relativePath, id: sanitizePath(relativePath), details: fileDetails };
 
   switch (type) {
     case 'image':

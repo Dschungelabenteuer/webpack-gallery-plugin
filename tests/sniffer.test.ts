@@ -18,12 +18,20 @@ describe('Sniffer - sniffFolder (images)', () => {
     const expectedOutput = {
       "_media": [
         {
+          "details": {
+            "title": "My great sample image",
+            "description": "It is used to provide a sample image, yay!"
+          },
           "height": 256,
           "id": "-images-example-128-256-png-png",
           "path": "/images/example_128_256_PNG.png",
           "width": 128,
         },
         {
+          "details": {
+            "random": "You can set whatever property you want",
+            "property": "All you need is valid JSON data"
+          },
           "height": 128,
           "id": "-images-example-256-128-jpg-jpg",
           "path": "/images/example_256_128_JPG.jpg",
@@ -70,12 +78,20 @@ describe('Sniffer - sniffFolder (images)', () => {
     const expectedOutput = {
       "_media": [
         {
+          "details": {
+            "title": "My great sample image",
+            "description": "It is used to provide a sample image, yay!"
+          },
           "height": 256,
           "id": "-images-example-128-256-png-png",
           "path": "/images/example_128_256_PNG.png",
           "width": 128,
         },
         {
+          "details": {
+            "random": "You can set whatever property you want",
+            "property": "All you need is valid JSON data"
+          },
           "height": 128,
           "id": "-images-example-256-128-jpg-jpg",
           "path": "/images/example_256_128_JPG.jpg",
