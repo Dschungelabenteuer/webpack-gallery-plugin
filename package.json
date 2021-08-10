@@ -1,6 +1,6 @@
 {
   "name": "webpack-gallery-plugin",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A webpack plugin to provide a global object representing a detailed gallery tree view",
   "main": "dist/main.js",
   "types": "dist/index.d.ts",
